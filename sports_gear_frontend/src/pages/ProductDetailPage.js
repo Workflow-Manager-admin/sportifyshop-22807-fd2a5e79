@@ -134,7 +134,6 @@ export default function ProductDetailPage() {
     } catch (err) {
       if (typeof window !== "undefined") {
         window.__addToCartFail = err;
-        // Also print to console for developer
         // eslint-disable-next-line
         console.error("Error in addToCart", err);
       }
@@ -142,6 +141,18 @@ export default function ProductDetailPage() {
       if (err && (err.status === 401 || (err.detail && /not authenticated|not authorized|unauthorized/i.test(err.detail)))) {
         rememberIntent();
         navigate("/login");
+      } else if (Array.isArray(err?.detail)) {
+        // Format validation field errors better
+        const msgs = err.detail
+          .filter(e => typeof e.msg === "string")
+          .map(e => {
+            let field = "";
+            if (Array.isArray(e.loc) && e.loc.length > 0) {
+              field = e.loc[e.loc.length - 1];
+            }
+            return `${field ? `${field}: ` : ""}${e.msg}`;
+          });
+        setError(msgs.length ? msgs : "Field required");
       } else {
         setError(
           err && err.detail

@@ -32,7 +32,21 @@ function CheckoutForm() {
       await clearCart();
       navigate("/orders");
     } catch (err) {
-      setError(err.detail || "Checkout error");
+      // Surface "stripe_token: Field required" if present (FastAPI validation error)
+      if (Array.isArray(err?.detail)) {
+        const msgs = err.detail
+          .filter(e => typeof e.msg === "string")
+          .map(e => {
+            let field = "";
+            if (Array.isArray(e.loc) && e.loc.length > 0) {
+              field = e.loc[e.loc.length - 1];
+            }
+            return `${field ? `${field}: ` : ""}${e.msg}`;
+          });
+        setError(msgs.length ? msgs : "Checkout error");
+      } else {
+        setError(err.detail || "Checkout error");
+      }
     } finally {
       setProcessing(false);
     }
