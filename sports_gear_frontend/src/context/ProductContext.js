@@ -6,7 +6,7 @@ const ProductContext = createContext(null);
 
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([{ id: null, name: "All" }]);
+  const [categories, setCategories] = useState([]);
   const [categoryLoading, setCategoryLoading] = useState(false);
   const [categoryError, setCategoryError] = useState(null);
   const [filters, setFilters] = useState({ search: "", category: null, size: "" });
@@ -19,16 +19,24 @@ export function ProductProvider({ children }) {
     setCategoryError(null);
     api.getCategories()
       .then((data) => {
+        // Only keep Shirt, Trouser, Watches, Shoes
+        const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+        let filtered = [];
         if (Array.isArray(data)) {
-          setCategories([{ id: null, name: "All" }, ...data]);
+          filtered = data.filter(
+            (cat) =>
+              typeof cat.name === "string" &&
+              allowed.includes(cat.name.trim())
+          );
+          setCategories(filtered);
           setCategoryError(null);
         } else {
-          setCategories([{ id: null, name: "All" }]);
+          setCategories([]);
           setCategoryError("Could not fetch categories.");
         }
       })
       .catch((err) => {
-        setCategories([{ id: null, name: "All" }]);
+        setCategories([]);
         setCategoryError(
           err?.detail
             || (typeof err === "string" ? err : "Could not fetch categories.")
@@ -67,7 +75,19 @@ export function ProductProvider({ children }) {
   }, [filters]);
 
   // PUBLIC_INTERFACE
-  const updateFilter = (updates) => setFilters(f => ({ ...f, ...updates }));
+  const updateFilter = (updates) => {
+    // Only permit a supported category or null.
+    const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+    let next = { ...filters, ...updates };
+    if (
+      next.category &&
+      (!categories || !categories.find(cat => cat.id === next.category))
+    ) {
+      // If category not in allowed UI categories, reset
+      next.category = null;
+    }
+    setFilters(next);
+  };
 
   return (
     <ProductContext.Provider value={{

@@ -34,10 +34,14 @@ export function Header({ user, onLogout }) {
 export function Sidebar({ categories: propCategories, onSelect, selected }) {
   // Accept propCategories for legacy but prefer context for error/loading
   const { categoryLoading, categoryError, categories } = useProducts();
-  // Decide categories to use
-  const cats = Array.isArray(categories) && categories.length > 0
+  // Only allow whitelisted categories (UI-level double check)
+  const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+  const cats = (Array.isArray(categories) && categories.length > 0
     ? categories
-    : (Array.isArray(propCategories) ? propCategories : []);
+    : (Array.isArray(propCategories) ? propCategories : [])
+  ).filter(cat =>
+    typeof cat.name === "string" && allowed.includes(cat.name.trim())
+  );
 
   return (
     <aside className="sg-sidebar">
