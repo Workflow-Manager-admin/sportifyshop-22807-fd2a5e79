@@ -1,1 +1,3 @@
-# sportifyshop-22807-fd2a5e79
+# manstyle-hub-frontend
+
+This is the frontend for **ManStyle Hub**, a modern web store for men's apparel & accessories, offering shirts, trousers, jackets, shoes, and a range of stylish accessories.

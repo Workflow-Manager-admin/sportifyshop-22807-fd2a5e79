@@ -7,7 +7,7 @@ export function Header({ user, onLogout }) {
   return (
     <header className="sg-header">
       <nav className="sg-navbar">
-        <Link to="/" className="sg-brand">Sportify Shop</Link>
+        <Link to="/" className="sg-brand">ManStyle Hub</Link>
         <div className="sg-navlinks">
           <Link to="/products">Products</Link>
           <Link to="/cart">Cart</Link>
@@ -73,7 +73,7 @@ export function Sidebar({ categories: propCategories, onSelect, selected }) {
 export function Footer() {
   return (
     <footer className="sg-footer">
-      <p>&copy; {new Date().getFullYear()} Sportify Shop. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} ManStyle Hub. All rights reserved.</p>
     </footer>
   );
 }

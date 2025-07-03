@@ -22,7 +22,7 @@ export default function ProductCatalogPage() {
         fontSize: "2rem", fontWeight: 700, marginBottom: "1.2rem",
         color: "var(--primary)"
       }}>
-        Explore Sports Gear
+        Shop the Best in Men's Apparel & Accessories
       </h2>
       <input
         style={{
