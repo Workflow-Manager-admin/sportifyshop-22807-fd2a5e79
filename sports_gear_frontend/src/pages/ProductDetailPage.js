@@ -1,8 +1,9 @@
+// Add-to-cart smart auth UX enhancement for Not Authenticated errors
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../api";
 import { useCart } from "../context/CartContext";
-
+import { useAuth } from "../context/AuthContext";
 // Helper for pretty error check
 function isApiError(obj) {
   return obj && typeof obj === "object"
@@ -20,6 +21,43 @@ export default function ProductDetailPage() {
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  // For login prompt UX: store intent in sessionStorage if needed
+  const rememberIntent = () => {
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem("postLoginAddToCart", JSON.stringify({
+        productId: product?.id,
+        qty,
+        size,
+      }));
+    }
+  };
+  // On mount, if redirected from login and there was an add-to-cart pending, auto-complete it
+  useEffect(() => {
+    if (typeof window !== "undefined" && user && product) {
+      const intentRaw = window.sessionStorage.getItem("postLoginAddToCart");
+      if (intentRaw) {
+        try {
+          const { productId, qty: sQty, size: sSize } = JSON.parse(intentRaw);
+          if (String(product.id) === String(productId)) {
+            // Perform add-to-cart once post-login, then clear intent
+            window.sessionStorage.removeItem("postLoginAddToCart");
+            addToCart(product.id, Number(sQty), sSize || undefined).then(
+              () => navigate("/cart")
+            ).catch(err => {
+              setError(
+                err && err.detail
+                  ? `Add to cart failed: ${err.detail}`
+                  : "Error adding to cart"
+              );
+            });
+          }
+        } catch { /* ignore */ }
+      }
+    }
+    // eslint-disable-next-line
+  }, [user, product]);
 
   useEffect(() => {
     setLoading(true);
@@ -74,6 +112,12 @@ export default function ProductDetailPage() {
       setError("Please select a size.");
       return;
     }
+    if (!user) {
+      // Not authenticated, store intent and redirect to login
+      rememberIntent();
+      navigate("/login");
+      return;
+    }
     // Debug: mark event
     if (typeof window !== "undefined") {
       window.__addToCartAttempt = {
@@ -94,11 +138,17 @@ export default function ProductDetailPage() {
         // eslint-disable-next-line
         console.error("Error in addToCart", err);
       }
-      setError(
-        err && err.detail
-          ? `Add to cart failed: ${err.detail}`
-          : (err && err.message ? "Add to cart failed: " + err.message : "Error adding to cart")
-      );
+      // Show a more user-friendly message for "Not authenticated"
+      if (err && (err.status === 401 || (err.detail && /not authenticated|not authorized|unauthorized/i.test(err.detail)))) {
+        rememberIntent();
+        navigate("/login");
+      } else {
+        setError(
+          err && err.detail
+            ? `Add to cart failed: ${err.detail}`
+            : (err && err.message ? "Add to cart failed: " + err.message : "Error adding to cart")
+        );
+      }
     }
   }
 
