@@ -31,3 +31,16 @@ Main colors are defined in `src/App.css` using CSS variables:
 ## Customization
 
 Update categories, homepage banners, or hero sections for fashion seasons or men's style trends!
+
+---
+
+## ⚠️ Troubleshooting API/Product Connectivity
+
+If product data does not load or shows "No products found":
+- Ensure your backend (FastAPI) is running and accessible.
+- Check that `REACT_APP_API_BASE` in `.env` points to the correct backend URL (see live backend above).
+- Confirm that the `/products` API returns a non-empty list via browser or `curl "<backend-url>/products"`.
+- Check DevTools → Network for CORS/404/500 errors.
+- After changing `.env`, restart frontend dev server.
+
+---

@@ -8,7 +8,8 @@
  */
 const API_BASE =
   process.env.REACT_APP_API_BASE ||
-  "https://vscode-internal-9355-beta.beta01.cloud.kavia.ai:3001";
+  // Updated default base URL to match the running backend container address.
+  "https://vscode-internal-3721-beta.beta01.cloud.kavia.ai:3001";
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
 // Utility for managing JWT token in storage
