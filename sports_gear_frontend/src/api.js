@@ -62,6 +62,14 @@ export const api = {
     });
   },
   async login({ email, password }) {
+    // Robustness: Log payload for debug, warn if password missing
+    if (!email || typeof email !== "string" || !password || typeof password !== "string") {
+      // This will visibly fail in dev tools so the author sees payload issues
+      // (Of course, backend will also reject, but this helps debugging on frontend)
+      console.error("api.login called with invalid payload:", { email, password });
+    } else {
+      console.debug("api.login payload:", { email, password });
+    }
     return apiFetch(`/auth/login`, {
       method: "POST",
       body: JSON.stringify({ email, password })

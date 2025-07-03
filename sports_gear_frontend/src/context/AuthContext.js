@@ -33,7 +33,12 @@ export function AuthProvider({ children }) {
 
   // PUBLIC_INTERFACE
   const login = async (email, password) => {
-    const data = await api.login({ email, password });
+    // Defensive: Ensure non-empty and string
+    if (!email || typeof email !== "string" || !password || typeof password !== "string") {
+      console.error("AuthContext.login: Invalid email or password argument", { email, password });
+      throw { detail: "Login input invalid (frontend)." };
+    }
+    const data = await api.login({ email: String(email), password: String(password) });
     setAuthToken(data.token);
     const prof = await api.getProfile();
     setUser({ email: prof.email, id: prof.id });
