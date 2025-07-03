@@ -104,9 +104,19 @@ export function ProductProvider({ children }) {
 
     // Build API filter params and add cache-busting param
     const params = {};
+    // CRITICAL FIX: Always log filters and categories for debugging
+    // eslint-disable-next-line
+    if (typeof window !== "undefined") {
+      window.__productCatalogDebug = { filters: JSON.parse(JSON.stringify(filters)), categories: JSON.parse(JSON.stringify(categories)) };
+    }
+
     // If a category is selected, translate name to id for the API
     if (filters.category && Array.isArray(categories) && categories.length > 0) {
-      const selectedCategory = categories.find(cat => cat.name === filters.category);
+      // FIX: Instead of matching on category name, try both by name and by ID (if filters.category is already an ID)
+      let selectedCategory = categories.find(cat => cat.name === filters.category);
+      if (!selectedCategory) {
+        selectedCategory = categories.find(cat => String(cat.id) === String(filters.category));
+      }
       if (selectedCategory) {
         params.category_id = selectedCategory.id;
       }
