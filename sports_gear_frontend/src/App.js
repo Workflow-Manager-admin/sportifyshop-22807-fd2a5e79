@@ -16,11 +16,12 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 import "./components/Layout.css";
 
-function MainLayout({ children }) {
+import { useProducts } from "./context/ProductContext";
+import { Outlet } from "react-router-dom";
+
+function MainLayout() {
   const { user, logout } = useAuth();
-  const { categories, filters, setFilters } = React.useContext(
-    require("./context/ProductContext").ProductContext
-  );
+  const { categories, filters, setFilters } = useProducts();
   return (
     <div className="App">
       <Header user={user} onLogout={logout} />
@@ -35,7 +36,7 @@ function MainLayout({ children }) {
           padding: "2rem",
           background: "var(--bg-secondary)"
         }}>
-          {children}
+          <Outlet />
         </main>
       </div>
       <Footer />
@@ -66,28 +67,40 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route element={<MainLayout />}>
                 <Route index element={<ProductCatalogPage />} />
-                <Route path="/products" element={<ProductCatalogPage />} />
-                <Route path="/products/:id" element={<ProductDetailPage />} />
-                <Route path="/cart" element={
-                  <ProtectedRoute>
-                    <CartPage />
-                  </ProtectedRoute>
-                } />
-                <Route path="/checkout" element={
-                  <ProtectedRoute>
-                    <CheckoutPage />
-                  </ProtectedRoute>
-                } />
-                <Route path="/orders" element={
-                  <ProtectedRoute>
-                    <OrderHistoryPage />
-                  </ProtectedRoute>
-                } />
-                <Route path="/profile" element={
-                  <ProtectedRoute>
-                    <ProfilePage />
-                  </ProtectedRoute>
-                } />
+                <Route path="products" element={<ProductCatalogPage />} />
+                <Route path="products/:id" element={<ProductDetailPage />} />
+                <Route
+                  path="cart"
+                  element={
+                    <ProtectedRoute>
+                      <CartPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="checkout"
+                  element={
+                    <ProtectedRoute>
+                      <CheckoutPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="orders"
+                  element={
+                    <ProtectedRoute>
+                      <OrderHistoryPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="profile"
+                  element={
+                    <ProtectedRoute>
+                      <ProfilePage />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>

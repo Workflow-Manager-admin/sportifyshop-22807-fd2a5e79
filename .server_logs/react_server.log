@@ -6,584 +6,11 @@ Attempting to bind to HOST environment variable: 0.0.0.0
 If this was unintentional, check that you haven't mistakenly set it in your shell.
 Learn more here: https://cra.link/advanced-config
 
-(node:431) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:9986) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:431) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:9986) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
-Compiled successfully!
-
-You can now view react-kavia in the browser.
-
-  Local:            http://localhost:3000
-  On Your Network:  http://172.17.0.2:3000
-
-Note that the development build is not optimized.
-To create a production build, use npm run build.
-
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 13:0-42
-Module not found: Error: Can't resolve './pages/LoginPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 14:0-48
-Module not found: Error: Can't resolve './pages/RegisterPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 15:0-60
-Module not found: Error: Can't resolve './pages/ProductCatalogPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 16:0-58
-Module not found: Error: Can't resolve './pages/ProductDetailPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 17:0-40
-Module not found: Error: Can't resolve './pages/CartPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 21:0-40
-Module not found: Error: Can't resolve './pages/NotFound' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-webpack compiled with 11 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 13:0-42
-Module not found: Error: Can't resolve './pages/LoginPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 14:0-48
-Module not found: Error: Can't resolve './pages/RegisterPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 15:0-60
-Module not found: Error: Can't resolve './pages/ProductCatalogPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 16:0-58
-Module not found: Error: Can't resolve './pages/ProductDetailPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 17:0-40
-Module not found: Error: Can't resolve './pages/CartPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 14:0-48
-Module not found: Error: Can't resolve './pages/RegisterPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 15:0-60
-Module not found: Error: Can't resolve './pages/ProductCatalogPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 16:0-58
-Module not found: Error: Can't resolve './pages/ProductDetailPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 17:0-40
-Module not found: Error: Can't resolve './pages/CartPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 15:0-60
-Module not found: Error: Can't resolve './pages/ProductCatalogPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 16:0-58
-Module not found: Error: Can't resolve './pages/ProductDetailPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 17:0-40
-Module not found: Error: Can't resolve './pages/CartPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 16:0-58
-Module not found: Error: Can't resolve './pages/ProductDetailPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 17:0-40
-Module not found: Error: Can't resolve './pages/CartPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 17:0-40
-Module not found: Error: Can't resolve './pages/CartPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 18:0-48
-Module not found: Error: Can't resolve './pages/CheckoutPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/CartPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/CheckoutPage.js
-  Line 30:22:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 19:0-56
-Module not found: Error: Can't resolve './pages/OrderHistoryPage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/CartPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 7:0-47
-Module not found: Error: Can't resolve '@stripe/stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 8:0-88
-Module not found: Error: Can't resolve '@stripe/react-stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 10:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 12 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/CheckoutPage.js
-  Line 30:22:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/App.js 20:0-46
-Module not found: Error: Can't resolve './pages/ProfilePage' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/CartPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 7:0-47
-Module not found: Error: Can't resolve '@stripe/stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 8:0-88
-Module not found: Error: Can't resolve '@stripe/react-stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 10:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 11 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/CheckoutPage.js
-  Line 30:22:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/CartPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 7:0-47
-Module not found: Error: Can't resolve '@stripe/stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 8:0-88
-Module not found: Error: Can't resolve '@stripe/react-stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 10:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-LOG from webpack.FileSystemInfo
-<w> Managed item /home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/node_modules/react-router-dom isn't a directory or doesn't contain a package.json (see snapshot.managedPaths option)
-<w> Managed item /home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/node_modules/@stripe/stripe-js isn't a directory or doesn't contain a package.json (see snapshot.managedPaths option)
-<w> Managed item /home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/node_modules/@stripe/react-stripe-js isn't a directory or doesn't contain a package.json (see snapshot.managedPaths option)
-+ 15 hidden lines
-
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/CheckoutPage.js
-  Line 30:22:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/CartPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 7:0-47
-Module not found: Error: Can't resolve '@stripe/stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 8:0-88
-Module not found: Error: Can't resolve '@stripe/react-stripe-js' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 10:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 10 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-WARNING in [eslint] 
-src/App.js
-  Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
-
-src/api.js
-  Line 37:5:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/CheckoutPage.js
-  Line 30:22:  Expected an error object to be thrown  no-throw-literal
-
-src/pages/ProductCatalogPage.js
-  Line 1:17:  'useState' is defined but never used  no-unused-vars
-
-ERROR in ./src/App.js 8:0-84
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src'
-
-ERROR in ./src/components/Layout.js 5:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/components'
-
-ERROR in ./src/pages/CartPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/CheckoutPage.js 10:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/LoginPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductCatalogPage.js 7:0-40
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/ProductDetailPage.js 6:0-58
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-ERROR in ./src/pages/RegisterPage.js 7:0-47
-Module not found: Error: Can't resolve 'react-router-dom' in '/home/kavia/workspace/code-generation/sportifyshop-22807-fd2a5e79/sports_gear_frontend/src/pages'
-
-webpack compiled with 8 errors and 1 warning
-Compiling...
 Compiled with warnings.
 
 [eslint] 
@@ -605,6 +32,72 @@ To ignore, add // eslint-disable-next-line to the line before.
 WARNING in [eslint] 
 src/App.js
   Line 55:17:  'setTheme' is assigned a value but never used  no-unused-vars
+
+src/api.js
+  Line 37:5:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/CheckoutPage.js
+  Line 30:22:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/ProductCatalogPage.js
+  Line 1:17:  'useState' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.js
+  Line 56:17:  'setTheme' is assigned a value but never used  no-unused-vars
+
+src/api.js
+  Line 37:5:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/CheckoutPage.js
+  Line 30:22:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/ProductCatalogPage.js
+  Line 1:17:  'useState' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.js
+  Line 56:17:  'setTheme' is assigned a value but never used  no-unused-vars
+
+src/api.js
+  Line 37:5:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/CheckoutPage.js
+  Line 30:22:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/ProductCatalogPage.js
+  Line 1:17:  'useState' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.js
+  Line 56:17:  'setTheme' is assigned a value but never used  no-unused-vars
+
+src/api.js
+  Line 37:5:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/CheckoutPage.js
+  Line 30:22:  Expected an error object to be thrown  no-throw-literal
+
+src/pages/ProductCatalogPage.js
+  Line 1:17:  'useState' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.js
+  Line 56:17:  'setTheme' is assigned a value but never used  no-unused-vars
 
 src/api.js
   Line 37:5:  Expected an error object to be thrown  no-throw-literal
