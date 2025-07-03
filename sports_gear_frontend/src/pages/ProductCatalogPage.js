@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useProducts } from "../context/ProductContext";
 import { Link } from "react-router-dom";
 
+// Helper for pretty error check
+function isApiError(obj) {
+  return obj && typeof obj === "object"
+    && Array.isArray(obj?.loc)
+    && typeof obj.msg === "string"
+    && (obj.hasOwnProperty("type") || obj.hasOwnProperty("msg"));
+}
+
 export default function ProductCatalogPage() {
   const { products, loading, filters, setFilters } = useProducts();
+
+  // NEW: Detect and show error if products is an error object
+  const error = useMemo(() => {
+    if (Array.isArray(products)) return null;
+    // sometimes products might be an error object if backend API call failed & context did not catch it
+    if (isApiError(products)) {
+      return products.msg || products.detail || "Error loading products";
+    }
+    if (products && products.detail) return products.detail;
+    return null;
+  }, [products]);
+
+  let productList = [];
+  if (Array.isArray(products)) {
+    productList = products;
+  }
 
   return (
     <div style={{ maxWidth: '1260px', margin: "0 auto" }}>
@@ -33,7 +57,13 @@ export default function ProductCatalogPage() {
       />
       {loading ? (
         <div style={{ marginTop: "2rem" }}>Loading...</div>
-      ) : products.length === 0 ? (
+      ) : error ? (
+        <div style={{ marginTop: "2rem", color: "red", fontWeight: 500 }}>
+          {typeof error === "string"
+            ? error
+            : "Sorry, there was a problem loading products."}
+        </div>
+      ) : productList.length === 0 ? (
         <div style={{ marginTop: "2rem", color: "gray" }}>No products found.</div>
       ) : (
         <div
@@ -43,7 +73,7 @@ export default function ProductCatalogPage() {
             gap: "2rem"
           }}
         >
-          {products.map(p => (
+          {productList.map(p => (
             <div
               key={p.id}
               style={{

@@ -3,23 +3,68 @@ import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../api";
 import { useCart } from "../context/CartContext";
 
+// Helper for pretty error check
+function isApiError(obj) {
+  return obj && typeof obj === "object"
+    && Array.isArray(obj?.loc)
+    && typeof obj.msg === "string"
+    && (obj.hasOwnProperty("type") || obj.hasOwnProperty("msg"));
+}
+
 export default function ProductDetailPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.getProduct(id).then(setProduct).catch(() => setProduct(null));
+    setLoading(true);
+    api.getProduct(id)
+      .then(data => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setProduct(err); // Could be an error object or null
+        setLoading(false);
+      });
   }, [id]);
 
-  if (!product)
+  // Product not found or error
+  if (loading) {
     return (
       <div style={{ margin: "3.5rem auto", color: "#ababab" }}>Loading...</div>
     );
+  }
+
+  // Check for error object from backend (including FastAPI validation errors)
+  if (
+    product === null ||
+    isApiError(product) ||
+    (product && product.detail && typeof product.detail === "string"))
+  {
+    const message =
+      (product && product.detail)
+        || (product && product.msg)
+        || "Product not found or there was a problem loading the product.";
+    return (
+      <div style={{
+        margin: "3.5rem auto",
+        color: "red",
+        fontWeight: 500,
+        maxWidth: 550,
+        background: "#fff7f8",
+        border: "1.5px solid #efc7c7",
+        padding: "2rem 1.3rem",
+        borderRadius: 10,
+        textAlign: "center"
+      }}>{message}</div>
+    );
+  }
 
   const sizes = product.sizes || [];
 
