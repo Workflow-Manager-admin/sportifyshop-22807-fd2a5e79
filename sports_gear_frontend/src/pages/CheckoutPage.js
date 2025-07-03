@@ -45,7 +45,19 @@ function CheckoutForm() {
     <form onSubmit={handleSubmit}>
       <CardElement />
       <button type="submit" className="sg-btn" disabled={processing}>Pay</button>
-      {error && <div style={{ color: "red", marginTop: 8 }}>{error}</div>}
+      {error && (
+        <div style={{ color: "red", marginTop: 8 }}>
+          {typeof error === "string"
+            ? error
+            : Array.isArray(error)
+            ? error.map((e, i) =>
+                typeof e === "string"
+                  ? e
+                  : e?.msg || e?.message || JSON.stringify(e)
+              ).join(", ")
+            : error?.msg || error?.message || JSON.stringify(error)}
+        </div>
+      )}
     </form>
   );
 }

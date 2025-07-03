@@ -271,7 +271,19 @@ export default function ProductDetailPage() {
           }} type="submit">
             Add to Cart
           </button>
-          {error && <div style={{ color: "red", marginTop: 10 }}>{error}</div>}
+          {error && (
+            <div style={{ color: "red", marginTop: 10 }}>
+              {typeof error === "string"
+                ? error
+                : Array.isArray(error)
+                ? error.map((e, i) =>
+                    typeof e === "string"
+                      ? e
+                      : e?.msg || e?.message || JSON.stringify(e)
+                  ).join(", ")
+                : error?.msg || error?.message || JSON.stringify(error)}
+            </div>
+          )}
         </form>
       </div>
     </div>

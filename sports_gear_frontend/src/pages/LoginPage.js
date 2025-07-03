@@ -31,7 +31,19 @@ export default function LoginPage() {
           <input type="password" value={password} onChange={e=>setPassword(e.target.value)} required />
         </label><br /><br />
         <button type="submit" className="sg-btn">Login</button>
-        {error && <div style={{ color: "red", marginTop: "0.5em" }}>{error}</div>}
+        {error && (
+          <div style={{ color: "red", marginTop: "0.5em" }}>
+            {typeof error === "string"
+              ? error
+              : Array.isArray(error)
+              ? error.map((e, i) =>
+                  typeof e === "string"
+                    ? e
+                    : e?.msg || e?.message || JSON.stringify(e)
+                ).join(", ")
+              : error?.msg || error?.message || JSON.stringify(error)}
+          </div>
+        )}
       </form>
     </div>
   );

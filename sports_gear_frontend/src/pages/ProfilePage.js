@@ -41,7 +41,19 @@ export default function ProfilePage() {
         ) : (
           <button className="sg-btn" type="button" onClick={()=>setEdit(true)}>Edit Profile</button>
         )}
-        {error && <span style={{ color:"red", marginLeft: 15 }}>{error}</span>}
+        {error && (
+          <span style={{ color:"red", marginLeft: 15 }}>
+            {typeof error === "string"
+              ? error
+              : Array.isArray(error)
+              ? error.map((e, i) =>
+                  typeof e === "string"
+                    ? e
+                    : e?.msg || e?.message || JSON.stringify(e)
+                ).join(", ")
+              : error?.msg || error?.message || JSON.stringify(error)}
+          </span>
+        )}
         {message && <span style={{ color:"green", marginLeft: 15 }}>{message}</span>}
       </form>
     </div>
