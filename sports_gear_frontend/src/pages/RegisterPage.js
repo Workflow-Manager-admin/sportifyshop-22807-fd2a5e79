@@ -14,6 +14,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError(null);
     try {
+      // Ensure register API receives {email, password, name} (matching backend expectations)
       await register(email, password, name);
       navigate("/");
     } catch (err) {
