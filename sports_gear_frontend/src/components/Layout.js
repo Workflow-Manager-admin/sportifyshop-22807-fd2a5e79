@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Layout.css";
+import { useProducts } from "../context/ProductContext";
 
 export function Header({ user, onLogout }) {
   return (
@@ -28,26 +29,43 @@ export function Header({ user, onLogout }) {
   );
 }
 
-export function Sidebar({ categories, onSelect, selected }) {
+/* Duplicate import removed */
+
+export function Sidebar({ categories: propCategories, onSelect, selected }) {
+  // Accept propCategories for legacy but prefer context for error/loading
+  const { categoryLoading, categoryError, categories } = useProducts();
+  // Decide categories to use
+  const cats = Array.isArray(categories) && categories.length > 0
+    ? categories
+    : (Array.isArray(propCategories) ? propCategories : []);
+
   return (
     <aside className="sg-sidebar">
       <div className="sg-sidebar-title">Categories</div>
-      <ul className="sg-category-list">
-        <li>
-          <button
-            className={`sg-category-btn${!selected ? " active" : ""}`}
-            onClick={() => onSelect(null)}
-          >All</button>
-        </li>
-        {categories.map(cat =>
-          <li key={cat.id}>
-            <button
-              className={`sg-category-btn${selected === cat.id ? " active" : ""}`}
-              onClick={() => onSelect(cat.id)}
-            >{cat.name}</button>
-          </li>
-        )}
-      </ul>
+      {categoryLoading ? (
+        <div style={{ color: "#888", margin: "1em 0" }}>Loading...</div>
+      ) : categoryError ? (
+        <div style={{ color: "red", margin: "1em 0", fontWeight: 500 }}>
+          {categoryError}
+        </div>
+      ) : (
+        <ul className="sg-category-list">
+          {cats.length > 0 ? (
+            cats.map(cat =>
+              <li key={cat.id}>
+                <button
+                  className={`sg-category-btn${selected === cat.id ? " active" : ""}`}
+                  onClick={() => onSelect(cat.id)}
+                >{cat.name}</button>
+              </li>
+            )
+          ) : (
+            <li>
+              <span style={{ color: "#888" }}>No categories</span>
+            </li>
+          )}
+        </ul>
+      )}
     </aside>
   );
 }
