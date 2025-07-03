@@ -72,17 +72,28 @@ export const api = {
 
   // Products
   async getProducts(params = {}) {
-    let qs = Object.entries(params)
+    // Add cache-buster timestamp to params for every call
+    const paramsWithTs = { ...params, _ts: Date.now() };
+    let qs = Object.entries(paramsWithTs)
       .filter(([,v]) => v !== undefined && v !== "")
       .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
       .join("&");
     return apiFetch(`/products${qs ? "?" + qs : ""}`);
   },
   async getProduct(id) {
-    return apiFetch(`/products/${id}`);
+    // Always refetch, never cache
+    return apiFetch(`/products/${id}?_ts=${Date.now()}`);
   },
-  async getCategories() {
-    return apiFetch("/categories");
+  // Accepts optional query, otherwise fetches with cache-buster param
+  async getCategories(extra = null) {
+    // Either override query or use cache-buster
+    let path = "/categories";
+    if (extra && typeof extra === "string") {
+      path += extra.startsWith("?") ? extra : ("?" + extra);
+    } else {
+      path += `?_ts=${Date.now()}`;
+    }
+    return apiFetch(path);
   },
 
   // Cart
