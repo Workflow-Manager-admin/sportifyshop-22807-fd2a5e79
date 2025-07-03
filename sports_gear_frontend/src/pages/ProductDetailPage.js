@@ -98,7 +98,11 @@ export default function ProductDetailPage() {
       }}
     >
       <img
-        src={product.image_url}
+        src={
+          product.image_url && typeof product.image_url === "string" && product.image_url.match(/^https?:\/\//)
+            ? product.image_url
+            : "https://via.placeholder.com/320x260.png?text=No+Image"
+        }
         alt={product.name}
         style={{
           width: 320,
@@ -107,6 +111,10 @@ export default function ProductDetailPage() {
           borderRadius: 11,
           background: "#f5f5f5",
           boxShadow: "0 0 1px #ddd"
+        }}
+        onError={e => {
+          e.target.onerror = null;
+          e.target.src = "https://via.placeholder.com/320x260.png?text=No+Image";
         }}
       />
       <div style={{ minWidth: 270, flex: 1 }}>

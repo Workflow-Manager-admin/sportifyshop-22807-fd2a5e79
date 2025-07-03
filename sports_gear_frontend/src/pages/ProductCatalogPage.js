@@ -71,7 +71,11 @@ export default function ProductCatalogPage() {
               }}
             >
               <img
-                src={p.image_url}
+                src={
+                  p.image_url && typeof p.image_url === "string" && p.image_url.match(/^https?:\/\//)
+                    ? p.image_url
+                    : "https://via.placeholder.com/230x145.png?text=No+Image"
+                }
                 alt={p.name}
                 style={{
                   width: "95%",
@@ -80,6 +84,10 @@ export default function ProductCatalogPage() {
                   marginBottom: 10,
                   borderRadius: 6,
                   background: "#f5f7fa"
+                }}
+                onError={e => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/230x145.png?text=No+Image";
                 }}
               />
               <div
