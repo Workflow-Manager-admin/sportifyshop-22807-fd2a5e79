@@ -13,9 +13,26 @@ export default function RegisterPage() {
   const handleSubmit = async e => {
     e.preventDefault();
     setError(null);
+    // Trim values before registering
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+
+    if (!trimmedName) {
+      setError(["name: Name is required"]);
+      return;
+    }
+    if (!trimmedEmail) {
+      setError(["email: Email is required"]);
+      return;
+    }
+    if (!trimmedPassword) {
+      setError(["password: Password is required"]);
+      return;
+    }
     try {
       // Ensure register API receives {email, password, name} (matching backend expectations)
-      await register(email, password, name);
+      await register(trimmedEmail, trimmedPassword, trimmedName);
       navigate("/");
     } catch (err) {
       // Improve error feedback if fields are missing (FastAPI returns a list of error objects)

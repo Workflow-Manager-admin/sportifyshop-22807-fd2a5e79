@@ -12,8 +12,19 @@ export default function LoginPage() {
   const handleSubmit = async e => {
     e.preventDefault();
     setError(null);
+    // Trim inputs for login
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+    if (!trimmedEmail) {
+      setError(["email: Email is required"]);
+      return;
+    }
+    if (!trimmedPassword) {
+      setError(["password: Password is required"]);
+      return;
+    }
     try {
-      await login(email, password);
+      await login(trimmedEmail, trimmedPassword);
       navigate("/");
     } catch (err) {
       // Improve error feedback if fields are missing (FastAPI returns a list of error objects)
