@@ -82,7 +82,9 @@ export default function ProductDetailPage() {
           color: "var(--primary)",
           fontSize: "1.4rem",
           fontWeight: 700
-        }}>${Number(product.price).toFixed(2)}</div>
+        }}>
+          ₹{Number(product.price).toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+        </div>
         <p
           style={{
             color: "#444",

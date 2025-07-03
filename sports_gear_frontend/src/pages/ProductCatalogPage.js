@@ -108,7 +108,7 @@ export default function ProductCatalogPage() {
                 fontSize: "1.2rem",
                 margin: "0.2em 0 0.6em"
               }}>
-                ${Number(p.price).toFixed(2)}
+                ₹{Number(p.price).toLocaleString("en-IN", { minimumFractionDigits: 2 })}
               </div>
               <Link
                 to={`/products/${p.id}`}
