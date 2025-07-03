@@ -34,13 +34,12 @@ export function Header({ user, onLogout }) {
 export function Sidebar({ categories: propCategories, onSelect, selected }) {
   // Accept propCategories for legacy but prefer context for error/loading
   const { categoryLoading, categoryError, categories } = useProducts();
-  // Only allow whitelisted categories (UI-level double check)
-  const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+  // Show all categories from backend, not a limited set
   const cats = (Array.isArray(categories) && categories.length > 0
     ? categories
     : (Array.isArray(propCategories) ? propCategories : [])
   ).filter(cat =>
-    typeof cat.name === "string" && allowed.includes(cat.name.trim())
+    typeof cat.name === "string"
   );
 
   return (

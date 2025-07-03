@@ -7,12 +7,10 @@ export default function ProductCatalogPage() {
 
   let productList = [];
   if (Array.isArray(products)) {
-    // Filter to allowed category names only
-    const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+    // Show all products (don't filter by hardcoded categories)
     productList = products.filter(
       (p) =>
-        typeof p.category_name === "string" &&
-        allowed.includes(p.category_name)
+        typeof p.category_name === "string"
     );
   }
 

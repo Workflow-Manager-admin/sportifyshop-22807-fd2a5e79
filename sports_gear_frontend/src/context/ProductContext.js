@@ -68,14 +68,11 @@ export function ProductProvider({ children }) {
 
     api.getCategories(`${bustParam ? "?" + bustParam : ""}`)
       .then((data) => {
-        // Allowed: Shirt, Trouser, Watches, Shoes
-        const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+        // No more frontend filter: allow all categories from backend
         let filtered = [];
         if (Array.isArray(data)) {
           filtered = data.filter(
-            (cat) =>
-              typeof cat.name === "string" &&
-              allowed.includes(cat.name.trim())
+            (cat) => typeof cat.name === "string"
           );
           setCategories(filtered);
           setCategoryError(null);
@@ -151,14 +148,13 @@ export function ProductProvider({ children }) {
    * The actual fetching logic will translate category name -> category_id.
    */
   const updateFilter = (updates) => {
-    // Only permit allowed category names or null.
-    const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
+    // No more frontend name restriction: allow any backend category
     let next = { ...filters, ...updates };
     if (
       next.category &&
       !categories.find(cat => cat.name === next.category)
     ) {
-      // If new category is not allowed, remove filter
+      // If selected category isn't in the backend list, remove the filter
       next.category = null;
     }
     setFilters(next);
