@@ -108,9 +108,10 @@ export const api = {
     return apiFetch(`/cart`, {}, true);
   },
   async addToCart({ product_id, quantity, size }) {
-    return apiFetch(`/cart`, {
+    // Map 'size' to 'selected_size' for backend compatibility (FastAPI expects selected_size).
+    return apiFetch(`/cart/items`, {
       method: "POST",
-      body: JSON.stringify({ product_id, quantity, size })
+      body: JSON.stringify({ product_id, quantity, selected_size: size })
     }, true);
   },
   async updateCartItem({ cart_item_id, quantity, size }) {
