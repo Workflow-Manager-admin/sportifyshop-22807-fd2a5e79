@@ -2,7 +2,13 @@
 // API utility for talking to sports_gear_backend.
 // Handles auth token management, error processing, and endpoint mapping.
 //
-const API_BASE = "https://vscode-internal-5-beta.beta01.cloud.kavia.ai:3001";
+/**
+ * API endpoint base, configurable via .env (REACT_APP_API_BASE for frontend).
+ * For local/dev: fallback is set to the current backend base URL.
+ */
+const API_BASE =
+  process.env.REACT_APP_API_BASE ||
+  "https://vscode-internal-9355-beta.beta01.cloud.kavia.ai:3001";
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
 // Utility for managing JWT token in storage
