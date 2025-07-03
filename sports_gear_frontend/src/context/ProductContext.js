@@ -104,8 +104,14 @@ export function ProductProvider({ children }) {
 
     // Build API filter params and add cache-busting param
     const params = {};
-    if (filters.category) params.category = filters.category;
-    if (filters.search?.trim()) params.search = filters.search.trim();
+    // If a category is selected, translate name to id for the API
+    if (filters.category && Array.isArray(categories) && categories.length > 0) {
+      const selectedCategory = categories.find(cat => cat.name === filters.category);
+      if (selectedCategory) {
+        params.category_id = selectedCategory.id;
+      }
+    }
+    if (filters.search?.trim()) params.q = filters.search.trim();
     if (filters.size) params.size = filters.size;
     params._ts = Date.now(); // cache-busting query param for safety
 
@@ -128,18 +134,21 @@ export function ProductProvider({ children }) {
       })
       .finally(() => setLoading(false));
     // eslint-disable-next-line
-  }, [filters]); // Triggers new fetch EVERY TIME filters change
-
+  }, [filters, categories]); // Triggers new fetch EVERY TIME filters or categories change
   // PUBLIC_INTERFACE
+  /**
+   * Update filters. Make sure category (UI-facing) is always category NAME or null.
+   * The actual fetching logic will translate category name -> category_id.
+   */
   const updateFilter = (updates) => {
-    // Only permit a supported category or null.
+    // Only permit allowed category names or null.
     const allowed = ["Shirt", "Trouser", "Watches", "Shoes"];
     let next = { ...filters, ...updates };
     if (
       next.category &&
-      (!categories || !categories.find(cat => cat.id === next.category))
+      !categories.find(cat => cat.name === next.category)
     ) {
-      // If category not in allowed UI categories, reset
+      // If new category is not allowed, remove filter
       next.category = null;
     }
     setFilters(next);
