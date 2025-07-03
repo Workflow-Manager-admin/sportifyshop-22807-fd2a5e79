@@ -8,6 +8,12 @@ export default function ProductCatalogPage() {
   let productList = [];
   if (Array.isArray(products)) {
     productList = products;
+    // Debug: log the productList to check for duplicate objects/content
+    if (productList.length > 1) {
+      // Only log if potentially problematic (performance)
+      // eslint-disable-next-line no-console
+      console.log("ProductCatalogPage productList", productList);
+    }
   }
 
   return (
