@@ -18,7 +18,11 @@ export function CartProvider({ children }) {
       return;
     }
     setLoading(true);
-    api.getCart().then((data) => setCart(data)).catch(() => setCart(null)).finally(() => setLoading(false));
+    api
+      .getCart()
+      .then((data) => setCart(data))
+      .catch(() => setCart(null))
+      .finally(() => setLoading(false));
   }, [user]);
 
   // PUBLIC_INTERFACE
@@ -35,8 +39,36 @@ export function CartProvider({ children }) {
 
   // PUBLIC_INTERFACE
   const addToCart = async (product_id, quantity, size) => {
-    await api.addToCart({ product_id, quantity, size });
-    await refreshCart();
+    // Debug logging start
+    if (typeof window !== "undefined") {
+      window.__cartDebug = window.__cartDebug || [];
+      window.__cartDebug.push({
+        time: Date.now(),
+        op: "addToCart",
+        args: { product_id, quantity, size }
+      });
+    }
+    try {
+      const resp = await api.addToCart({ product_id, quantity, size });
+      if (typeof window !== "undefined" && window.__cartDebug) {
+        window.__cartDebug.push({
+          time: Date.now(),
+          op: "addToCart_success",
+          response: resp
+        });
+      }
+      await refreshCart();
+      return resp;
+    } catch (err) {
+      if (typeof window !== "undefined" && window.__cartDebug) {
+        window.__cartDebug.push({
+          time: Date.now(),
+          op: "addToCart_error",
+          error: err
+        });
+      }
+      throw err;
+    }
   };
 
   // PUBLIC_INTERFACE
@@ -58,10 +90,17 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{
-      cart, loading,
-      addToCart, updateCartItem, removeCartItem, clearCart, refreshCart
-    }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        loading,
+        addToCart,
+        updateCartItem,
+        removeCartItem,
+        clearCart,
+        refreshCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

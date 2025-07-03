@@ -74,11 +74,31 @@ export default function ProductDetailPage() {
       setError("Please select a size.");
       return;
     }
+    // Debug: mark event
+    if (typeof window !== "undefined") {
+      window.__addToCartAttempt = {
+        time: Date.now(),
+        prodId: product.id,
+        qty: qty,
+        size: size,
+      };
+    }
     try {
       await addToCart(product.id, Number(qty), size || undefined);
+      if (typeof window !== "undefined") window.__addToCartSuccess = Date.now();
       navigate("/cart");
     } catch (err) {
-      setError(err.detail || "Error adding to cart");
+      if (typeof window !== "undefined") {
+        window.__addToCartFail = err;
+        // Also print to console for developer
+        // eslint-disable-next-line
+        console.error("Error in addToCart", err);
+      }
+      setError(
+        err && err.detail
+          ? `Add to cart failed: ${err.detail}`
+          : (err && err.message ? "Add to cart failed: " + err.message : "Error adding to cart")
+      );
     }
   }
 

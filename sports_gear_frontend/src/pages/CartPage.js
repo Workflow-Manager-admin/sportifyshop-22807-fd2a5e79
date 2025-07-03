@@ -5,9 +5,28 @@ import { useNavigate } from "react-router-dom";
 export default function CartPage() {
   const { cart, loading, updateCartItem, removeCartItem, clearCart } = useCart();
   const navigate = useNavigate();
+
+  // Dev tool: expose cart to window for debugging
+  if (typeof window !== "undefined") {
+    window.__currentCart = cart;
+  }
+
   if (loading) return <div>Loading cart...</div>;
   if (!cart || !cart.items || cart.items.length === 0)
-    return <div style={{ margin: "2rem" }}>Cart is empty.</div>;
+    return (
+      <div style={{ margin: "2rem" }}>
+        Cart is empty.
+        {typeof window !== "undefined" &&
+          window.__cartDebug && window.__cartDebug.length > 0 && (
+            <details style={{ marginTop: 16, color: "#888" }}>
+              <summary>Debug Info (cart)</summary>
+              <pre style={{ fontSize: "0.98em" }}>
+                {JSON.stringify(window.__cartDebug, null, 2)}
+              </pre>
+            </details>
+          )}
+      </div>
+    );
 
   let total = 0;
   return (
@@ -52,6 +71,16 @@ export default function CartPage() {
         <button className="sg-btn small" style={{ marginLeft: 8, background: "#eee", color: "#333" }}
           onClick={clearCart}>Clear Cart</button>
       </div>
+      {/* Extra debug info display */}
+      {typeof window !== "undefined" &&
+        window.__cartDebug && window.__cartDebug.length > 0 && (
+          <details style={{ marginTop: 30, color: "#555" }}>
+            <summary>Debug Log</summary>
+            <pre style={{ fontSize: "0.92em", maxHeight: 300, overflow: "auto" }}>
+              {JSON.stringify(window.__cartDebug, null, 2)}
+            </pre>
+          </details>
+        )}
     </div>
   );
 }
