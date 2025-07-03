@@ -1,14 +1,14 @@
 # ManStyle Hub Frontend
 
-This is the React frontend for **ManStyle Hub**, a stylish ecommerce store focused exclusively on men's apparel & accessories.
+This is the React frontend for **ManStyle Hub**, a stylish ecommerce site dedicated to men's apparel & fashion accessories.
 
 ## Features
 
-- **Clean UI**: Modern, minimalist interface for fashion browsing
-- **Men's Wardrobe**: Product catalog for shirts, trousers, jackets, shoes, belts, wallets, watches, ties, sunglasses, hats & more.
-- **INR Pricing**: Localized prices, easy selection of sizes
-- **Cart & Orders**: Seamless cart, checkout, order history
-- **User Accounts**: Register, login, manage profile
+- **Modern UI**: Minimalist, fashion-centric browsing experience
+- **Men's Wardrobe**: Catalog of shirts, trousers, jackets, shoes, belts, wallets, watches, ties, sunglasses, hats and more (no sports gear)
+- **INR Pricing**: Showcases Indian Rupee pricing, easy size selection
+- **Cart & Orders**: Seamless shopping cart, order review, order history
+- **User Accounts**: Secure register, login, and profile management
 
 ## Running the Project
 
@@ -30,5 +30,4 @@ Main colors are defined in `src/App.css` using CSS variables:
 
 ## Customization
 
-Update categories, hero sections, or homepage banners as needed for festivals or seasonal themes!
-
+Update categories, homepage banners, or hero sections for fashion seasons or men's style trends!

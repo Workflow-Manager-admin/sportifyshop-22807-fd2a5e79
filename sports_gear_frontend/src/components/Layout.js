@@ -9,11 +9,11 @@ export function Header({ user, onLogout }) {
       <nav className="sg-navbar">
         <Link to="/" className="sg-brand">ManStyle Hub</Link>
         <div className="sg-navlinks">
-          <Link to="/products">Products</Link>
+          <Link to="/products">Shop</Link>
           <Link to="/cart">Cart</Link>
           {user ? (
             <>
-              <Link to="/orders">Orders</Link>
+              <Link to="/orders">My Orders</Link>
               <Link to="/profile">Profile</Link>
               <button onClick={onLogout} className="sg-btn small">Logout</button>
             </>
@@ -73,7 +73,7 @@ export function Sidebar({ categories: propCategories, onSelect, selected }) {
 export function Footer() {
   return (
     <footer className="sg-footer">
-      <p>&copy; {new Date().getFullYear()} ManStyle Hub. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} ManStyle Hub – Exclusive Men's Apparel & Accessories. All rights reserved.</p>
     </footer>
   );
 }
